@@ -1,0 +1,51 @@
+/* body {
+    background-color: rgb(241, 241, 241);
+    border-color: rgb(170, 170, 170);
+}
+
+.container {
+    background-color: rgb(241, 241, 241);
+}
+
+.container input, .card, .page-link {
+    background-color: rgb(241, 241, 241);
+    border-color: rgb(170, 170, 170);
+} */
+
+.main-text {
+    text-shadow: 0px 0px 5px black;
+}
+
+nav .pagination * {
+    color: black;
+    text-decoration: none;
+    border: none;
+}
+
+nav .pagination .page-link:hover {
+    color: black;
+    text-decoration: none;
+    border: none;
+    font-weight: bold;
+}
+
+nav .pagination .page-link.active {
+    color: black;
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+nav .pagination .page-link:focus {
+  outline: none;
+  box-shadow: none;
+  color: black;
+}
+
+.gallery-photo.selected {
+    filter: brightness(0.5);
+}
+
+.main-text-container {
+  z-index: 10; 
+  pointer-events: none;
+}
