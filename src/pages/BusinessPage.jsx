@@ -35,21 +35,19 @@ const BusinessPage = () => {
             <div className="d-flex flex-column">
                 {
                     data.length <= 0 ? <p className='fw-bold text-center fs-5 w-100'>Belum ada data UMKM</p> : paginated.map((d) => {
-                        return <>
-                            <div className="card mb-3 w-100 border border-0 shadow" >
-                                <div className="row g-0">
-                                    <div className="col-3" style={{"max-height": "100px"}}>
-                                        <img src={d?.picture == null ? Foto : d?.picture} className="img-fluid rounded-start w-100 object-fit-cover h-100" alt="..."  />
-                                    </div>
-                                    <div className="col-9">
-                                    <div className="card-body">
-                                        <h5 className="card-title fw-semibold">{d?.name}</h5>
-                                        <a href={d?.link} target='_blank' className='text-decoration-none'><p className="card-text"><small className="text-body-secondary">Klik di sini untuk melihat lokasi</small></p></a>
-                                    </div>
-                                    </div>
+                        return <div className="card mb-3 w-100 border border-0 shadow" key={d?.id}>
+                            <div className="row g-0">
+                                <div className="col-3" style={{"maxHeight": "100px"}}>
+                                    <img src={d?.picture == null ? Foto : d?.picture} loading='lazy' className="img-fluid rounded-start w-100 object-fit-cover h-100" alt="gambar-umkm"  />
+                                </div>
+                                <div className="col-9">
+                                <div className="card-body">
+                                    <h5 className="card-title fw-semibold">{d?.name}</h5>
+                                    <a href={d?.link} target='_blank' className='text-decoration-none'><p className="card-text"><small className="text-body-secondary">Klik di sini untuk melihat lokasi</small></p></a>
+                                </div>
                                 </div>
                             </div>
-                        </>
+                        </div>
                     })
                 }
 

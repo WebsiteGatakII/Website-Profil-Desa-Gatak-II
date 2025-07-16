@@ -36,7 +36,7 @@ const Header = () => {
             data-bs-target="#navbarNav"
           >
             {isOpen ? (
-              <span className="fs-1 fw-bold text-light"><i class="bi bi-x-lg"></i></span>
+              <span className="fs-1 fw-bold text-light"><i className="bi bi-x-lg"></i></span>
             ) : (
               <span className="navbar-toggler-icon"></span>
             )}

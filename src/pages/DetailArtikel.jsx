@@ -21,7 +21,7 @@ const DetailArtikelPage = () => {
     return <>
         <div className="container mt-5">
             <h1 className='text-center fw-bold'>{artikel?.title}</h1>
-            <img src={artikel?.picture} alt="foto-artikel" className="w-100 my-3 object-fit-cover shadow rounded" style={{maxHeight: "70vh", minHeight: "50vh"}} />
+            <img loading='lazy' src={artikel?.picture} alt="foto-artikel" className="w-100 my-3 object-fit-cover shadow rounded" style={{maxHeight: "70vh", minHeight: "50vh"}} />
             {
                 artikel?.paragraphs.map((paragraph) => {
                     return <p className='mb-4' style={{textAlign: "justify"}}>{paragraph}</p>

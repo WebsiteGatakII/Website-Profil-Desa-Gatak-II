@@ -35,23 +35,21 @@ const ArticlePage = () => {
             <div className="d-flex">
                 {
                     data.length <= 0 ? <p className='fw-bold text-center fs-5 w-100'>Belum ada data UMKM</p> : paginated.map((d) => {
-                        return <>
-                            <a href={`/detail-artikel/${d?.id}`} className='w-100' style={{textDecoration: "none"}}>
-                                <div className="card mb-3 w-100 border border-0 shadow" >
-                                    <div className="row g-0">
-                                        <div className="col-3">
-                                            <img src={d?.picture == null ? Foto : d?.picture} className="img-fluid rounded-start w-100 object-fit-cover h-100" alt="..." style={{"max-height": "100px"}} />
-                                        </div>
-                                        <div className="col-9">
-                                        <div className="card-body">
-                                            <h5 className="card-title fw-semibold">{d?.title}</h5>
-                                            <p className="card-text"><small className="text-body-secondary">{d?.date}</small></p>
-                                        </div>
-                                        </div>
+                        return <a href={`/detail-artikel/${d?.id}`} className='w-100' style={{textDecoration: "none"}} key={d?.id}>
+                            <div className="card mb-3 w-100 border border-0 shadow" >
+                                <div className="row g-0">
+                                    <div className="col-3">
+                                        <img loading='lazy' src={d?.picture == null ? Foto : d?.picture} className="img-fluid rounded-start w-100 object-fit-cover h-100" alt="gambar-artikel" style={{"maxHeight": "100px"}} />
+                                    </div>
+                                    <div className="col-9">
+                                    <div className="card-body">
+                                        <h5 className="card-title fw-semibold">{d?.title}</h5>
+                                        <p className="card-text"><small className="text-body-secondary">{d?.date}</small></p>
+                                    </div>
                                     </div>
                                 </div>
-                            </a>
-                        </>
+                            </div>
+                        </a>
                     })
                 }
 

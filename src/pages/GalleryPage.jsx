@@ -76,6 +76,7 @@ const GalleryPage = () => {
                 ) : (
                     paginated.map((d) => (
                         <img 
+                            loading='lazy'
                             key={d?.id}
                             src={d?.foto != null ? d?.foto : Foto} 
                             alt={d?.nama} 
