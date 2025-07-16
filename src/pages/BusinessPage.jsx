@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import Foto from '../assets/dummy.jpg';
 import Pagination from '../components/Pagination';
 import { database } from '../data/database';
+import AOS from 'aos';
 
 const BusinessPage = () => {
 
@@ -22,6 +23,13 @@ const BusinessPage = () => {
     const totalPages = Math.ceil(filtered.length/itemsPerPage);
     const paginated = filtered.length <= 0 ? filtered : filtered.slice((currentPage-1)*itemsPerPage, (currentPage*itemsPerPage));
 
+    useEffect(() => {
+        AOS.init({
+        duration: 1000,
+        once: true,
+        });
+    }, []);
+
     return <>
         <div className="container mt-5 mb-3" style={{minHeight: "90vh"}}>
             <h1 className='fw-bold'>Halaman UMKM</h1>
@@ -35,7 +43,7 @@ const BusinessPage = () => {
             <div className="d-flex flex-column">
                 {
                     data.length <= 0 ? <p className='fw-bold text-center fs-5 w-100'>Belum ada data UMKM</p> : paginated.map((d) => {
-                        return <div className="card mb-3 w-100 border border-0 shadow" key={d?.id}>
+                        return <div className="card mb-3 w-100 border border-0 shadow" key={d?.id} data-aos="fade-up">
                             <div className="row g-0">
                                 <div className="col-3" style={{"maxHeight": "100px"}}>
                                     <img src={d?.picture == null ? Foto : d?.picture} loading='lazy' className="img-fluid rounded-start w-100 object-fit-cover h-100" alt="gambar-umkm"  />

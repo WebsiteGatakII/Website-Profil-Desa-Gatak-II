@@ -1,6 +1,4 @@
-import { useState } from 'react'
-
-import { createBrowserRouter, RouterProvider, Navigate } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import MainLayout from '../layout/MainLayout';
 import MainPage from '../pages/MainPage';

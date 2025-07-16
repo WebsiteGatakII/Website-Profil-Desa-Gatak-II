@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import Foto from '../assets/dummy.jpg';
 import Pagination from '../components/Pagination';
 import { database } from '../data/database';
+import AOS from 'aos';
 
 const ArticlePage = () => {
 
@@ -10,7 +11,7 @@ const ArticlePage = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 5;
 
-    const response = database.DATA_ARTIKEL
+    const response = database.DATA_ARTIKEL;
 
     useEffect(() => {
         setData(response);
@@ -21,6 +22,13 @@ const ArticlePage = () => {
     });
     const totalPages = Math.ceil(filtered.length/itemsPerPage);
     const paginated = filtered.length <= 0 ? filtered : filtered.slice((currentPage-1)*itemsPerPage, (currentPage*itemsPerPage));
+
+    useEffect(() => {
+        AOS.init({
+        duration: 1000,
+        once: true,
+        });
+    }, []);
 
     return <>
         <div className="container mt-5">
@@ -35,7 +43,7 @@ const ArticlePage = () => {
             <div className="d-flex">
                 {
                     data.length <= 0 ? <p className='fw-bold text-center fs-5 w-100'>Belum ada data UMKM</p> : paginated.map((d) => {
-                        return <a href={`/detail-artikel/${d?.id}`} className='w-100' style={{textDecoration: "none"}} key={d?.id}>
+                        return <a href={`/detail-artikel/${d?.id}`} className='w-100' style={{textDecoration: "none"}} key={d?.id} data-aos="fade-up">
                             <div className="card mb-3 w-100 border border-0 shadow" >
                                 <div className="row g-0">
                                     <div className="col-3">

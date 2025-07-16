@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import Foto from '../assets/dummy.jpg';
 import { database } from '../data/database';
 import Pagination from '../components/Pagination';
+import AOS from 'aos';
 
 const GalleryPage = () => {
 
@@ -42,11 +43,18 @@ const GalleryPage = () => {
     const totalPages = Math.ceil(filtered.length/itemsPerPage);
     const paginated = filtered.length <= 0 ? filtered : filtered.slice((currentPage-1)*itemsPerPage, (currentPage*itemsPerPage));
 
+    useEffect(() => {
+        AOS.init({
+        duration: 1000,
+        once: true,
+        });
+    }, []);
+
     return <>
         <div className="container mt-5 mb-3 h-md-100 h-50" style={{minHeight: "90vh"}}>
             <h1 className='fw-bold'>Halaman Galeri</h1>
 
-            <div className="border border-1 w-100 rounded mb-3">
+            <div className="border border-1 w-100 rounded mb-3" data-aos="fade-up">
                 <img src={selectedPhoto == null ? Foto : selectedPhoto?.foto} alt="" className='w-100 object-fit-cover rounded'/>
             </div>
 
