@@ -11,6 +11,7 @@
     { "source": "/sitemap.xml", "destination": "/sitemap.xml" },
     { "source": "/robots.txt", "destination": "/robots.txt" },
     { "source": "/favicon.ico", "destination": "/favicon.ico" },
+    { "source": "/icon.svg", "destination": "/icon.svg" },
     { "source": "/(.*)", "destination": "/" }
   ]
 }
